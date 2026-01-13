@@ -26,7 +26,7 @@ export default function BasicCard() {
     <Card sx={{ minWidth: 275, 
                 display: 'flex', 
                 flexDirection: 'column', 
-                alignItems: 'center', // <--- Esto centra todo el contenido horizontalmente
+                alignItems: 'center',
                 textAlign: 'center'}}>
       <CardContent>
         <LockIcon fontSize="large"></LockIcon>
