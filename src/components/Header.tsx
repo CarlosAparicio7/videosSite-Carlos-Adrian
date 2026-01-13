@@ -9,143 +9,208 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import CssBaseline from '@mui/material/CssBaseline';
+import Badge from '@mui/material/Badge';
+import { NotificationsNoneOutlined } from '@mui/icons-material';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Explore', 'About'];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <React.Fragment>
       <CssBaseline />
       
-      <AppBar position="fixed" sx={{ width: '100%', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Container maxWidth={false}>
+      <AppBar 
+        position="fixed" 
+        sx={{ 
+          width: '100%', 
+          backgroundColor: 'white', 
+          color: 'black', 
+          boxShadow: '0px 2px 4px rgba(0,0,0,0.05)' 
+        }}
+      >
+        <Container maxWidth="lg"> 
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              LOGO
-            </Typography>
+            
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 40,
+                  height: 40,
+                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%)',
+                  mr: 1.5
+                }}
+              >
+                <HomeOutlinedIcon sx={{ color: 'white', fontSize: 26 }} />
+              </Box>
+
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'Roboto, Helvetica, Arial, sans-serif', 
+                  fontWeight: 500,
+                  fontSize: '1.2rem',
+                  color: 'black',
+                  letterSpacing: '0.5px',
+                  userSelect: 'none',
+                  textDecoration: 'none'
+                }}
+              >
+                MyApp
+              </Typography>
+            </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
+              <IconButton onClick={handleOpenNavMenu} color="inherit">
                 <MenuIcon />
               </IconButton>
               <Menu
-                id="menu-appbar"
                 anchorEl={anchorElNav}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                keepMounted
-                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{ display: { xs: 'block', md: 'none' } }}
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                    <Typography sx={{ textAlign: 'center', fontSize: '1.1rem' }}>{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
 
-            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
             <Typography
-              variant="h5"
+              variant="h6"
               noWrap
-              component="a"
-              href="/"
               sx={{
-                mr: 2,
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
+                fontWeight: 500,
+                fontSize: '1.1rem',
+                color: 'black',
+                textAlign: 'center',
+                userSelect: 'none',
+                textDecoration: 'none'
               }}
             >
-              LOGO
+              MyApp
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ 
+                flexGrow: 1, 
+                display: { xs: 'none', md: 'flex' }, 
+                justifyContent: 'center',
+                gap: 2 
+            }}>
               {pages.map((page) => (
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ 
+                    my: 2, 
+                    color: 'black',
+                    textTransform: 'none !important',
+                    fontSize: '1.05rem',
+                    fontWeight: 500,
+                    '&:hover': { backgroundColor: 'rgba(0,0,0,0.04)' }
+                  }}
                 >
                   {page}
                 </Button>
               ))}
             </Box>
+            
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                <Box 
+                  sx={{ 
+                    mr: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    color: 'action.active',
+                    transition: 'color 0.2s',
+                    '&:hover': { 
+                      color: '#1A237E',
+                      '& .MuiSvgIcon-root': { color: '#1A237E' }
+                    }
+                  }}
+                >
+                    <Badge color="error" variant="dot">
+                        <NotificationsNoneOutlined sx={{ fontSize: 28, transition: 'color 0.2s' }} />
+                    </Badge>
+                </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="User Avatar" src="https://mui.com/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                keepMounted
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <IconButton sx={{ p: 0, cursor: 'default', '&:hover': { backgroundColor: 'transparent' } }}>
+                      <Avatar 
+                        sx={{ 
+                          width: 28, 
+                          height: 28, 
+                          bgcolor: '#E8EAF6', 
+                          color: '#3F51B5' 
+                        }}
+                      >
+                          <PersonOutlineIcon sx={{ fontSize: 20 }} />
+                      </Avatar>
+                  </IconButton>
+                  <Typography 
+                    sx={{ 
+                      fontSize: '0.75rem', 
+                      color: 'text.secondary', 
+                      fontWeight: 500,
+                      userSelect: 'none'
+                    }}
+                  >
+                    Usuario
+                  </Typography>
+                </Box>
+
+                <Typography
+                  component="a"
+                  href="/"
+                  sx={{
+                    ml: 3,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 0.5,
+                    color: 'text.secondary',
+                    textDecoration: 'none',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    transition: 'color 0.2s',
+                    '&:hover': {
+                      color: 'error.main',
+                      '& .MuiSvgIcon-root': {
+                        color: 'error.main'
+                      }
+                    }
+                  }}
+                >
+                  <LogoutIcon sx={{ fontSize: 20, transition: 'color 0.2s' }} />
+                  Cerrar sesión
+                </Typography>
             </Box>
+
           </Toolbar>
         </Container>
       </AppBar>
