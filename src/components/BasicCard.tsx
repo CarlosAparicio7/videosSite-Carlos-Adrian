@@ -5,10 +5,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ButtonLogin from './ButtonLogin';
+import CheckboxLabel from './CheckBoxLabel';
 import Input from './Input';
 import InputPassword from './InputPassword';
-import CheckboxLabel from './CheckBoxLabel';
-
 
 
 

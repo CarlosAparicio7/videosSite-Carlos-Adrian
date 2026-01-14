@@ -1,3 +1,4 @@
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControl from '@mui/material/FormControl';
@@ -24,6 +25,11 @@ export default function InputPassword() {
             placeholder="Enter your password"
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            startAdornment={
+              <InputAdornment position="start">
+                <LockOutlinedIcon sx={{ color: 'gray', fontSize: 20 }} />
+              </InputAdornment>
+            }
             sx={{borderRadius: '12px'}}
             endAdornment={
               <InputAdornment position="end">

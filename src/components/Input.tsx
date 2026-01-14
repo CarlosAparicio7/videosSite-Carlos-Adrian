@@ -1,4 +1,6 @@
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Box from '@mui/material/Box';
+import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 export default function Inputs() {
@@ -11,7 +13,14 @@ export default function Inputs() {
     >
       <OutlinedInput 
           placeholder="you@example.com" 
-          fullWidth 
+          fullWidth
+          required
+          type='email'
+          startAdornment={
+            <InputAdornment position="start">
+              <MailOutlineIcon sx={{ color: 'gray', fontSize: 20 }} />
+            </InputAdornment>
+          }
           sx={{ 
             mb: 3,
             width: 342,
