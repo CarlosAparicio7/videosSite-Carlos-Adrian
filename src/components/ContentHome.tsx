@@ -98,8 +98,7 @@ export default function ContentHome() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease-in-out',
+                      opacity: 0
                     }}
                   >
                     <Button
