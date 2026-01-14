@@ -19,7 +19,7 @@ export default function Footer() {
       sx={{ 
         width: '100%', 
         bgcolor: 'white', 
-        position: 'relative', 
+        position: 'absolute',
         overflow: 'visible' 
       }}
     >
@@ -48,7 +48,7 @@ export default function Footer() {
                 width: 40,
                 height: 40,
                 borderRadius: '10px',
-                background: 'linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%)',
+                background: 'linear-gradient(135deg, #6a22dd 0%, #7921b8 100%)',
                 mr: 1.5
               }}
             >
@@ -69,11 +69,11 @@ export default function Footer() {
             flex: 1, 
             justifyContent: 'center', 
             flexWrap: 'nowrap',
-            gap: { xs: 8, md: 15 },
-            maxWidth: '900px'
+            gap: { xs: 8, md: 25 },
+            maxWidth: '700px'
           }}
         >
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <Typography variant="subtitle1" sx={{ fontWeight: 700, fontSize: '1.1rem' }}>
               Producto
             </Typography>
@@ -82,7 +82,7 @@ export default function Footer() {
             <Link href="#" underline="none" color="text.secondary" sx={{ '&:hover': { color: '#8A2BE2' } }}>API</Link>
           </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <Typography variant="subtitle1" sx={{ fontWeight: 700, fontSize: '1.1rem' }}>
               Compañía
             </Typography>
@@ -91,7 +91,7 @@ export default function Footer() {
             <Link href="#" underline="none" color="text.secondary" sx={{ '&:hover': { color: '#8A2BE2' } }}>Contacto</Link>
           </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <Typography variant="subtitle1" sx={{ fontWeight: 700, fontSize: '1.1rem' }}>
               Legal
             </Typography>
