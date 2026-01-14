@@ -27,27 +27,29 @@ export default function BasicCard() {
                 display: 'flex', 
                 flexDirection: 'column', 
                 alignItems: 'center',
-                textAlign: 'center'}}>
+                textAlign: 'center',
+                borderRadius: '12px'}}>
       <CardContent>
         <LockIcon fontSize="large"></LockIcon>
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
           Welcome Back
         </Typography>
         <Typography sx={{ color: 'text.secondary', mb: 1.5}}>Sign in to your account to continue</Typography>
-        <Typography variant="body2">
-          Email
+        <Typography variant="body2" marginRight={31} marginTop={2.5}>
+          Email Address 
           <br />
-          <Input></Input>
         </Typography>
-        <Typography variant="body2">
+        <Input></Input>
+        <Typography variant="body2" marginRight={35} marginTop={2.5}>
           Password
           <br />
-          <InputPassword></InputPassword>
         </Typography>
+        <InputPassword></InputPassword>
       </CardContent>
       <CardActions>
         <ButtonLogin/>
       </CardActions>
+      <br/>
     </Card>
     </Box>
   );

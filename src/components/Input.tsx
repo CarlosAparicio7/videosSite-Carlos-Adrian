@@ -10,10 +10,12 @@ export default function Inputs() {
       autoComplete="off"
     >
       <OutlinedInput 
-          placeholder="Email" 
+          placeholder="you@example.com" 
           fullWidth 
           sx={{ 
             mb: 3,
+            width: 342,
+            borderRadius: '12px',
             backgroundColor: '#fff',
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
               borderColor: '#1976d2', 
