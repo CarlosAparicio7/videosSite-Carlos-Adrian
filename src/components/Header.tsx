@@ -16,6 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 const pages = ['Home', 'Explore', 'About'];
 
@@ -185,8 +186,8 @@ function Header() {
                 </Box>
 
                 <Typography
-                  component="a"
-                  href="/"
+                  component={Link}
+                  to="/"
               sx={{
                     ml: 3,
                     display: 'flex',
