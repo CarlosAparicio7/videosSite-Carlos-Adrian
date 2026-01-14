@@ -187,7 +187,7 @@ function Header() {
                 <Typography
                   component="a"
                   href="/"
-                  sx={{
+              sx={{
                     ml: 3,
                     display: 'flex',
                     alignItems: 'center',
