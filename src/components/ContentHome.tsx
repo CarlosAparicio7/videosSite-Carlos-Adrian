@@ -1,93 +1,23 @@
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-
-const cardData = [
-  {
-    img: 'https://picsum.photos/800/450?random=3',
-    tag: 'Design',
-    title: 'Designing for the future: trends and insights',
-    description: 'Stay ahead of the curve with the latest design trends and insights.',
-    authors: [{ name: 'Kate Morrison', avatar: '' }],
-  },
-  {
-    img: 'https://picsum.photos/800/450?random=4',
-    tag: 'Company',
-    title: "Our company's journey: milestones and achievements",
-    description: "Take a look at our company's journey and the milestones we've achieved.",
-    authors: [{ name: 'Cindy Baker', avatar: '' }],
-  },
-  {
-    img: 'https://picsum.photos/800/450?random=5',
-    tag: 'Engineering',
-    title: 'Pioneering sustainable engineering solutions',
-    description: "Learn about our commitment to sustainability and innovative solutions.",
-    authors: [{ name: 'Agnes Walker', avatar: '' }],
-  },
-  {
-    img: 'https://picsum.photos/800/450?random=6',
-    tag: 'Product',
-    title: 'Maximizing efficiency with our latest product updates',
-    description: 'Get a detailed overview of the new features that can elevate your workflow.',
-    authors: [{ name: 'Travis Howard', avatar: '' }],
-  },
-];
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  padding: 0,
-  height: '100%',
-  backgroundColor: theme.palette.background.paper,
-  '&:hover': {
-    backgroundColor: 'transparent',
-    cursor: 'pointer',
-  },
-}));
-
-const StyledCardContent = styled(CardContent)({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 4,
-  padding: 16,
-  flexGrow: 1,
-});
-
-const StyledTypography = styled(Typography)({
-  display: '-webkit-box',
-  WebkitBoxOrient: 'vertical',
-  WebkitLineClamp: 2,
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-});
-
-function Author({ authors }: { authors: { name: string; avatar: string }[] }) {
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, alignItems: 'center', justifyContent: 'space-between', padding: '16px' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1, alignItems: 'center' }}>
-        <AvatarGroup max={3}>
-          {authors.map((author, index) => (
-            <Avatar key={index} alt={author.name} src={author.avatar} sx={{ width: 24, height: 24 }} />
-          ))}
-        </AvatarGroup>
-        <Typography variant="caption">{authors.map((author) => author.name).join(', ')}</Typography>
-      </Box>
-      <Typography variant="caption">July 14, 2021</Typography>
-    </Box>
-  );
-}
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function ContentHome() {
+  const cards = Array.from({ length: 6 });
+  const nameContent = ['Introducción a React', 'Diseño UI/UX Moderno', 'Marketing Digital', 'Fotografía Profesional', 'Desarrollo Web Full Stack', 'Productividad Personal'];
+  const viewCounts = ['12.4k', '20.2k', '5.1k', '100k', '15.1k', '8.9k'];
+  const durations = ['10:25', '05:40', '22:15', '14:02', '08:50', '30:00'];
+
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ marginLeft: '30%' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, py: 4 }}>
         <div>
           <Typography variant="h4" gutterBottom sx={{ fontWeight: 550, fontSize: 22 }}>
@@ -131,28 +61,53 @@ export default function ContentHome() {
           ))}
         </Box>
 
-        <Grid container spacing={3}>
-          {cardData.map((card, index) => (
+        <Grid container spacing={1}>
+          {cards.map((_, index) => (
             <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
-              <StyledCard variant="outlined" tabIndex={0}>
-                <CardMedia
-                  component="img"
-                  image={card.img}
-                  sx={{ aspectRatio: '16/9', borderBottom: '1px solid', borderColor: 'divider' }}
-                />
-                <StyledCardContent>
-                  <Typography variant="caption" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-                    {card.tag}
+              <Card sx={{ maxWidth: 300 }}>
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    alt={`Imagen ${index}`}
+                    height="140"
+                    image={`https://picsum.photos/300/140?random=${index}`}
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 8,
+                      right: 8,
+                      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                      color: 'white',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      fontSize: '12px',
+                    }}
+                  >
+                    {durations[index]}
+                  </Box>
+                </Box>
+                
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontSize: '1.25rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {nameContent[index]}
                   </Typography>
-                  <Typography variant="h6" gutterBottom>
-                    {card.title}
+                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+                    Descripción breve del contenido multimedia disponible.
                   </Typography>
-                  <StyledTypography variant="body2" color="text.secondary">
-                    {card.description}
-                  </StyledTypography>
-                </StyledCardContent>
-                <Author authors={card.authors} />
-              </StyledCard>
+                  
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
+                    <VisibilityIcon sx={{ fontSize: 18 }} />
+                    <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                      {viewCounts[index]}
+                    </Typography>
+                  </Box>
+                </CardContent>
+                <CardActions>
+                  <Button size="small">Share</Button>
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
             </Grid>
           ))}
         </Grid>
