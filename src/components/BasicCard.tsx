@@ -25,7 +25,7 @@ export default function BasicCard() {
       }}
     >
     <Card sx={{ minWidth: 275, 
-                display: 'flex', 
+                display: 'flex',
                 flexDirection: 'column', 
                 alignItems: 'center',
                 textAlign: 'center',
