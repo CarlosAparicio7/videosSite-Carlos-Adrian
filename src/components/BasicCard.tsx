@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import ButtonLogin from './ButtonLogin';
 import Input from './Input';
 import InputPassword from './InputPassword';
+import CheckboxLabel from './CheckBoxLabel';
 
 
 
@@ -20,7 +21,7 @@ export default function BasicCard() {
         alignItems: 'center',      
         minHeight: '100vh',       
         width: '100vw',            
-        backgroundColor: '#cce5e7' 
+        backgroundColor: '#E9F0FF' 
       }}
     >
     <Card sx={{ minWidth: 275, 
@@ -45,6 +46,14 @@ export default function BasicCard() {
           <br />
         </Typography>
         <InputPassword></InputPassword>
+        <Box
+          display={'flex'}
+        >
+        <CheckboxLabel></CheckboxLabel>
+        <Typography variant="body2" marginLeft={9} marginTop={3}>
+          Forgot password?
+        </Typography>
+        </Box>
       </CardContent>
       <CardActions>
         <ButtonLogin/>
