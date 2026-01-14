@@ -31,6 +31,7 @@ export default function BasicCard() {
                 textAlign: 'center',
                 borderRadius: '12px'}}>
       <CardContent>
+          <br/>
         <LockIcon fontSize="large"></LockIcon>
         <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 20 }}>
           Welcome Back
@@ -50,7 +51,7 @@ export default function BasicCard() {
           display={'flex'}
         >
         <CheckboxLabel></CheckboxLabel>
-        <Typography variant="body2" marginLeft={9} marginTop={3}>
+        <Typography variant="body2" marginLeft={9} marginTop={3} color='#5842f4'>
           Forgot password?
         </Typography>
         </Box>
