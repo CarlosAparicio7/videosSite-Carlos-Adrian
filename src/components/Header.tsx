@@ -16,6 +16,7 @@ import { NotificationsNoneOutlined } from '@mui/icons-material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
 
 const pages = ['Home', 'Explore', 'About'];
 
@@ -183,10 +184,9 @@ function Header() {
                     Usuario
                   </Typography>
                 </Box>
-
+                <Link to="/">
                 <Typography
                   component="a"
-                  href="/"
                   sx={{
                     ml: 3,
                     display: 'flex',
@@ -209,6 +209,7 @@ function Header() {
                   <LogoutIcon sx={{ fontSize: 20, transition: 'color 0.2s' }} />
                   Cerrar sesión
                 </Typography>
+                </Link>
             </Box>
 
           </Toolbar>

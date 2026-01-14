@@ -7,12 +7,17 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function ContentHome() {
   const cards = Array.from({ length: 6 });
   const nameContent = ['Introducción a React', 'Diseño UI/UX Moderno', 'Marketing Digital', 'Fotografía Profesional', 'Desarrollo Web Full Stack', 'Productividad Personal'];
+  const description = ['Aprende los fundamentos de React desde cero', 'Técnicas avanzadas de diseño de interfaces', 'Estrategias efectivas para redes sociales', 'Domina tu cámara y crea imágenes increíbles', 'Construye aplicaciones web completas', 'Técnicas para maximizar tu tiempo'];
+  const tagDesription = ['Programación', 'Diseño', 'Marketing', 'Fotografía', 'Programación', 'Productividad']
   const viewCounts = ['12.4k', '20.2k', '5.1k', '100k', '15.1k', '8.9k'];
   const durations = ['10:25', '05:40', '22:15', '14:02', '08:50', '30:00'];
 
@@ -61,17 +66,51 @@ export default function ContentHome() {
           ))}
         </Box>
 
-        <Grid container spacing={1}>
+        <Grid container spacing={2}>
           {cards.map((_, index) => (
-            <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Card sx={{ maxWidth: 300 }}>
-                <Box sx={{ position: 'relative' }}>
+            <Grid key={index} size={{ md: 3 }}>
+              <Card sx={{ 
+                maxWidth: 300, 
+                borderRadius: '20px', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                height: '100%',
+                '&:hover .overlay-button': { opacity: 1 } 
+              }}>
+                <Box sx={{ position: 'relative', overflow: 'hidden', borderRadius: '10px', m: 0.5 }}>
                   <CardMedia
                     component="img"
                     alt={`Imagen ${index}`}
-                    height="140"
-                    image={`https://picsum.photos/300/140?random=${index}`}
+                    sx={{ borderRadius: '10px' }}
+                    height="180"
+                    image={`https://picsum.photos/300/180?random=${index}`}
                   />
+                  <Link to="/stats">
+                  <Box 
+                    className="overlay-button"
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      opacity: 0,
+                      transition: 'opacity 0.3s ease-in-out',
+                    }}
+                  >
+                    <Button
+                      variant="text"
+                      startIcon={<BarChartIcon />}
+                      sx={{ color: 'white', textTransform: 'none', fontWeight: 500 }}
+                    >
+                      Ver Estadísticas
+                    </Button>
+                  </Box>
+                  </Link>
                   <Box
                     sx={{
                       position: 'absolute',
@@ -82,18 +121,32 @@ export default function ContentHome() {
                       padding: '2px 6px',
                       borderRadius: '4px',
                       fontSize: '12px',
+                      zIndex: 1
                     }}
                   >
                     {durations[index]}
                   </Box>
                 </Box>
                 
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div" sx={{ fontSize: '1.25rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography sx={{ 
+                    display: 'inline-block',
+                    backgroundColor: '#e1e2f3', 
+                    color: '#4c38e4', 
+                    px: 1.5, 
+                    py: 0.5, 
+                    borderRadius: '8px', 
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    marginBottom: 1
+                  }}>
+                    {tagDesription[index]}
+                  </Typography>
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontSize: '1.25rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontWeight: 600 }}>
                     {nameContent[index]}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-                    Descripción breve del contenido multimedia disponible.
+                  <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2, minHeight: '40px' }}>
+                    {description[index]}
                   </Typography>
                   
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
@@ -101,16 +154,45 @@ export default function ContentHome() {
                     <Typography variant="body2" sx={{ fontWeight: 500 }}>
                       {viewCounts[index]}
                     </Typography>
+                    <FavoriteBorderIcon sx={{
+                      marginLeft: 'auto',
+                      '&:hover': {
+                        color: 'error.main',
+                      }
+                    }}/>
                   </Box>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                <Link to="/stats">
+                <CardActions sx={{ p: 2, pt: 0 }}>
+                  <Button 
+                    fullWidth
+                    variant="contained"
+                    startIcon={<BarChartIcon/>}
+                    sx={{
+                      backgroundColor: '#f0f2ff', 
+                      color: '#4832eb', 
+                      borderRadius: '12px',
+                      textTransform: 'none', 
+                      fontSize: '16px',
+                      boxShadow: 'none',
+                      py: 1,
+                      '&:hover': {
+                        backgroundColor: '#e5e8ff',
+                        boxShadow: 'none'
+                      }
+                    }}
+                  >
+                    Ver estadísticas
+                  </Button>
                 </CardActions>
+                </Link>
               </Card>
             </Grid>
           ))}
         </Grid>
+        <Button variant="contained" sx={{width: '25%', height: 55, backgroundColor: '#4832eb', borderRadius: '12px', textTransform: 'none', marginLeft: '38%', fontSize: '20px', mt: 2 }}>
+          Cargar más contenido
+        </Button>
       </Box>
     </Container>
   );
