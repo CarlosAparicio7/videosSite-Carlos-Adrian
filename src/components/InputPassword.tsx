@@ -3,7 +3,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import React from 'react';
 
@@ -20,11 +19,12 @@ export default function InputPassword() {
     event.preventDefault();
   };
       return (
-    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+    <FormControl sx={{ m: 1, width: '40ch' }} variant="outlined">
           <OutlinedInput
+            placeholder="Enter your password"
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            sx={{borderRadius: '12px'}}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -40,7 +40,6 @@ export default function InputPassword() {
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
           />
         </FormControl>
       );
