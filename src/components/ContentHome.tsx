@@ -10,8 +10,11 @@ import Button from '@mui/material/Button';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ContentHome() {
   const cards = Array.from({ length: 6 });
@@ -21,18 +24,55 @@ export default function ContentHome() {
   const viewCounts = ['12.4k', '20.2k', '5.1k', '100k', '15.1k', '8.9k'];
   const durations = ['10:25', '05:40', '22:15', '14:02', '08:50', '30:00'];
 
+  useEffect(() => {
+    toast.success('Bienvenido de nuevo usuario');
+  }, []);
+
   return (
     <Container maxWidth="lg" sx={{ marginLeft: '30%' }}>
+      <Toaster 
+        position="top-right" 
+        toastOptions={{
+          style: {
+            background: '#25c26c',
+            color: '#fff',
+            borderRadius: '10px',
+          },
+        }} 
+      />
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, py: 4 }}>
-        <div>
-          <Typography variant="h4" gutterBottom sx={{ fontWeight: 550, fontSize: 22 }}>
-            Bienvenido a tu Dashboard
-          </Typography>
-          <Typography color="text.secondary">
-            Explora nuestro contenido multimedia y comienza a aprender hoy mismo
-          </Typography>
-        </div>
-
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Box>
+            <Typography variant="h4" gutterBottom sx={{ fontWeight: 550, fontSize: 22 }}>
+              Bienvenido a tu Dashboard
+            </Typography>
+            <Typography color="text.secondary">
+              Explora nuestro contenido multimedia y comienza a aprender hoy mismo
+            </Typography>
+          </Box>
+          <Link to="/newVideo">
+          <Button 
+            variant="contained" 
+            startIcon={<FileUploadIcon />}
+            sx={{
+              backgroundColor: '#00a82d',
+              borderRadius: '12px',
+              textTransform: 'none',
+              fontSize: '17px',
+              fontWeight: 500,
+              px: 3,
+              py: 1.2,
+              boxShadow: 'none',
+              '&:hover': {
+                backgroundColor: '#008a25',
+                boxShadow: 'none'
+              }
+            }}
+          >
+            Subir Video
+          </Button>
+          </Link>
+        </Box>
         <Box sx={{ display: 'flex', gap: 1.5, overflow: 'auto', pb: 1 }}>
           {['Todos', 'Programación', 'Diseño', 'Marketing', 'Fotografia', 'Productividad'].map((label) => (
             <Chip
