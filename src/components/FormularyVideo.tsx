@@ -1,4 +1,5 @@
-import * as React from 'react';
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -10,9 +11,9 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
-import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
-import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import * as React from 'react';
 import AddressForm from '../components/AddressForm';
+import PublicationForm from '../components/PublicationForm';
 
 const steps = ['Información y Archivos', 'Configuración y Publicar'];
 
@@ -21,7 +22,7 @@ function getStepContent(step: number) {
     case 0:
       return <AddressForm />;
     case 1:
-      return ;
+      return <PublicationForm/>;
     default:
       throw new Error('Ha habido un error');
   }
