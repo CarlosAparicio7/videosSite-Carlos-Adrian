@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
 import FormControl from '@mui/material/FormControl';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -31,7 +30,7 @@ export default function PublicationForm() {
           placeholder="Escribe una etiqueta y presiona Enter"
           size="small"
         />
-        <Button component={Link} to="/home" variant="contained" sx={{width: 200, height: 45, backgroundColor: '#5842f4', borderRadius: '12px', marginLeft: 2}}>Agregar</Button>
+        <Button variant="contained" sx={{width: 200, height: 45, backgroundColor: '#5842f4', borderRadius: '12px', marginLeft: 2}}>Agregar</Button>
         </Box>
       </FormGrid>
       <FormGrid size={{ xs: 10 }}>

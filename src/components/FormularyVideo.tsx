@@ -11,7 +11,7 @@ import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CheckIcon from '@mui/icons-material/Check';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import AddressForm from '../components/AddressForm';
+import CuestionaryVideo from '../components/CuestionaryVideo';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import PublicationForm from './PublicationForm';
@@ -81,7 +81,7 @@ function getStepContent(step: number) {
     case 0:
       return (
         <Box sx={{ mt: 6 }}>
-          <AddressForm />
+          <CuestionaryVideo />
         </Box>
       );
     case 1:
@@ -112,8 +112,8 @@ export default function Checkout() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      marginLeft: '50%',
-      marginRight: '-125%'
+      marginLeft: '-60%',
+      marginRight: '-120%'
     }}>
       <CssBaseline />
       
