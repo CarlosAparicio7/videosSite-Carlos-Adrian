@@ -6,6 +6,10 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import FormControl from '@mui/material/FormControl';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
 
 const FormGrid = styled(Grid)(() => ({
   display: 'flex',
@@ -32,6 +36,22 @@ export default function PublicationForm() {
       </FormGrid>
       <FormGrid size={{ xs: 10 }}>
         <Typography sx={{ color: 'gray', mb: 1.5}}>0/10 etiquetas</Typography>
+      </FormGrid>
+      <FormGrid>
+        <FormControl sx={{marginRight: 100}}>
+          <FormLabel id="demo-radio-buttons-group-label">Visibilidad</FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="publico"
+            name="radio-buttons-group"
+          >
+          <Box sx={{border: '1px solid #d1d5db'}}>
+            <FormControlLabel value="publico" control={<Radio />} label="Publico" />
+          </Box>
+          <FormControlLabel value="noListado" control={<Radio />} label="No listado" />
+          <FormControlLabel value="privado" control={<Radio />} label="Privado" />
+          </RadioGroup>
+        </FormControl>
       </FormGrid>
     </Grid>
   );
