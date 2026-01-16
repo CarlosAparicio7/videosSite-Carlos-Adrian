@@ -15,7 +15,7 @@ const FormGrid = styled(Grid)(() => ({
 export default function PublicationForm() {
   return (
     <Grid container spacing={3}>
-      <FormGrid size={{ xs: 50 }}>
+      <FormGrid size={{ xs: 12 }}>
         <FormLabel htmlFor="etiquetas">
           Etiquetas
         </FormLabel>

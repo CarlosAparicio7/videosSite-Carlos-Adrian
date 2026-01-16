@@ -14,6 +14,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddressForm from '../components/AddressForm';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import PublicationForm from './PublicationForm';
 
 const steps = ['Información y Archivos', 'Configuración y Publicar'];
 
@@ -86,6 +87,7 @@ function getStepContent(step: number) {
     case 1:
       return (
         <Box sx={{ mt: 6 }}>
+          <PublicationForm/>
         </Box>
       );
     default:
